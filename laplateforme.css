@@ -1,0 +1,526 @@
+/* ===== THEME ====== */
+
+
+/* Styles for Default or Classic Theme */
+
+body.theme, body.classic {
+  --primary-color: #336699;
+  --secondary-color: #ffa000;
+  --accent-color: white;
+
+  --background-color: #007aff;
+  --text-color: #fff;
+  --surface-color: #f5f5f5;
+  --nav-color: #3d3d3d;
+
+  --footer-background-color: #000;
+  --footer-text-color: #fff;
+  --footer-expanded-background-color: grey;
+  --footer-expanded-text-color: lightgrey;
+
+}
+
+/* Styles for Light Theme */
+body.theme.light {
+  --primary-color: #336699;
+  --secondary-color: #ffa000;
+  --accent-color: #336699;
+
+  --background-color: #fff;
+  --text-color: #000;
+  --surface-color: #f5f5f5;
+  --nav-color: #3d3d3d;
+
+  --footer-background-color: #000;
+  --footer-text-color: #fff;
+  --footer-expanded-background-color: #242424;
+  --footer-expanded-text-color: lightgrey;
+
+}
+
+/* Styles for Dark Theme */
+body.theme.dark {
+  --primary-color: #336699;
+  --secondary-color: #ffa000;
+  --accent-color: white;
+
+  --background-color: #01172f;
+  --text-color: #e2e2e2;
+  --surface-color: #f5f5f5;
+  --nav-color: #3d3d3d;
+
+  --footer-background-color: #000;
+  --footer-text-color: #fff;
+  --footer-expanded-background-color: grey;
+  --footer-expanded-text-color: lightgrey;
+}
+
+/* Dimensions 4 Theme */
+
+body {
+  --toolbar-height: 63px;
+}
+
+/* === END of THEME === */
+
+
+
+
+
+/* ====== TYPOGRAPHY ====== */
+
+/* NOTE: This is just for testing purposes and will be removed accordingly */
+
+/* Roboto Regular */
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('assets/fonts/roboto/Roboto-Regular.ttf');
+}
+
+/* Roboto Light */
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('assets/fonts/roboto/Roboto-Light.ttf');
+}
+
+
+/* Roboto Bold */
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url('assets/fonts/roboto/Roboto-Bold.ttf');
+}
+
+
+/* === END of TYPOGRAPHY === */
+
+
+
+
+body {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100vh; /* <- be careful with this ;) */
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  line-height: 1.5;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 
+ * [Hidden]
+ *
+ * This attributes turns us into magicians like the great Hooooodini :)
+ * It allows us to hide elements henever we want
+ * 
+ */
+[hidden] {
+  display: none !important;
+}
+
+/* [Fullbleed] attribute removes all margin and padding values */
+[fullbleed] {
+  margin: 0;
+  padding: 0;
+}
+
+
+span[stretch] {
+  display: flex;
+  flex: 1 auto;
+}
+
+a:hover {
+  color: var(--accent-color) !important;
+}
+
+h2 {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: normal;
+}
+
+
+/*
+section > h2 {
+  margin: 48px 24px;
+}*/
+
+
+/* ========= Horizontal & Vertical - Flex Layout Styles ====== */
+
+/* Vertical Flex Layout */
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Horizontal Flex Layout */
+.horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
+.centered {
+  justify-content: center;
+  align-items: center;
+}
+
+/* =============== ACCEUIL - CSS STYLES ============ */
+
+
+
+/* App Layout */
+#appLayout {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background: inherit;
+  color: inherit;
+}
+
+/* Header */
+#header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 500px;
+  background-color: beige;
+  padding-top: var(--toolbar-height, 63px);
+}
+
+/* Header Content */
+#headerContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  background-color: cyan;
+}
+
+
+#headerContent > section {
+  display: flex;
+  flex-direction: column;
+  flex: 1 auto;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+#headerContent > section:first-child {
+  background-color: red;
+}
+
+
+/** Tool Bar **/
+#toolBar {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: 63px;
+  background: azure;
+}
+
+/* Tool Bar [fixed] - Let's try to imitate an App #LOL */
+#toolBar[fixed] {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* a - Tool Bar */
+#toolBar a {
+  width: auto;
+  height: 100%;
+  /* text-decoration: none; */
+  color: inherit;
+}
+
+/* li - a - Menu Bar */
+#toolBar a > li {
+  height: inherit;
+  width: inherit;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  padding: 0 16px;
+}
+
+/* Indicator of MenuBar */
+#toolBar a[active] .indicator {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px 5px 0px 0px;
+  background: var(--accent-color, blue);
+}
+
+/* inactive a indicator inside toolBar */
+#toolBar a:not([active]) .indicator {
+  display: none;
+}
+
+/* Logo */
+#logo {
+  display: flex;
+}
+
+/* Image of Logo */
+#logo img {
+  display: block;
+  position: relative;
+}
+
+
+/* img of Logo */
+.logo.name {
+  width: 240px;
+  height: 40px;
+  align-self: center;
+  margin: 0 16px;
+}
+
+/* Nav inside toolBar */
+#toolBar nav {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  font-size: 100%;
+  justify-content: space-around;
+  color: var(--nav-color);
+}
+
+
+/* List & Links */
+.list, .links { 
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+
+.list a, .links a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*
+.list {
+  padding: 0;
+}*/
+
+
+/* social links */
+.social.links {
+  margin: 0;
+  padding: 0;
+}
+
+.social.links a {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  margin: 8px;
+}
+
+
+/*** Sections in Content ***/
+
+#content section {
+  width: 100%;
+  min-height: 500px;
+  background-color: #f8f8f8;
+}
+
+#content section > h2 {
+  font-size: 2em;
+  margin: 48px 24px;
+}
+
+#content section > p, section > h2 {
+  text-align: center;
+}
+
+
+/** Boxes **/
+
+.box-wrapper {
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
+.box {
+  width: 100%;
+  min-height: 400px;
+  margin: 24px;
+  position: relative;
+  border: 0;
+  background-color: white;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+
+.list.horizontal .box {}
+
+
+/* #content section .list .box-wrapper {} */
+
+
+
+/* ======== PROFESSIONS CONTAINER - <section> ============ */
+
+section#professionsContainer {
+  background-color: #e2e2e2;
+}
+
+
+section#professionsContainer {}
+
+/* Boxes in professions container */
+/* #professionsContainer .box */
+
+
+/* ======== END of PROFESSIONS CONTAINER - <section> ======== */
+
+
+
+
+
+
+
+
+/* ======== TRANSFORMATIONS CONTAINER - <section> ============ */
+
+section#transformationsContainer {
+  background-color: #e2e2e2;
+}
+
+
+section#transformationsContainer {}
+
+
+/* ======== END of TRANSFORMATIONS CONTAINER - <section> ======== */
+
+
+
+
+
+
+
+/* ======== TESTIMONIALS CONTAINER - <section> ============ */
+
+section#testimonialsContainer {
+  background-color: var(--secondary-color);
+}
+
+
+section#testimonialsContainer .box {
+  background-color: #dc8b03;
+}
+
+
+/* ======== END of TESTIMONIALS CONTAINER - <section> ======== */
+
+
+
+
+
+
+
+/* ========= FOOTER STYLES ========= */
+
+/* Default Footer */
+footer {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  min-height: 50px;
+  background-color: var(--footer-background-color, black);
+  color: var(--footer-text-color, white);
+  white-space: nowrap;
+}
+
+/** Footer Container */
+footer .container {
+  height: inherit;
+  width: inherit;
+  align-items: center;
+  padding: 0 24px;
+}
+
+/* Links */
+footer .links:not(.social) {
+  flex: 1;
+  flex-direction: row;
+  padding: 0;
+  margin: 0 24px;
+  width: 100%;
+  justify-content: space-around;
+  height: 100%;
+  align-items: center;
+}
+
+
+footer:not([expanded]) .links:not(.social) .link {  
+  margin: 8px 16px;
+}
+
+/* Expanded Footer */
+footer[expanded] {
+  min-height: 550px; /* <- HACK: Fixed resize issue temporarily :( */
+  background-color: var(--footer-expanded-background-color, grey);
+  color: var(--footer-expanded-text-color, lightgrey);
+  justify-content: center;
+}
+
+footer[expanded] .box {
+  background-color: #141414;
+}
+
+/* First box in the expanded footer */
+footer[expanded] .box-wrapper:first-child .box {
+  width: 400px;
+}
+
+footer[expanded] .box-wrapper:not(:first-child) li {
+  width: 100%;
+  height: 40px;
+  display: flex;
+}
+
+footer[expanded] .box-wrapper:not(:first-child) li a {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  position: relative;
+  padding: 0 16px;
+  align-items: center;
+}
+
+/* Footer Logo */
+#footerLogo {
+  width: 80%;
+}
+
+/* Set opcity of copyright text to 0.5 */
+span[copyright] {
+  opacity: 0.5;
+}
+
+/* =============== CONTACT - CSS STYLES ============ */
