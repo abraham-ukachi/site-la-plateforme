@@ -1,53 +1,48 @@
 /* ===== THEME ====== */
 
 
-/* Styles for Default or Classic Theme */
 
-body.theme, body.classic {
+/* Default Theme Styles */
+
+.theme {
   --primary-color: #336699;
   --secondary-color: #ffa000;
-  --accent-color: white;
+  --accent-color: orange;
 
-  --background-color: #007aff;
-  --text-color: #fff;
-  --surface-color: #f5f5f5;
-  --nav-color: #3d3d3d;
-
-  --footer-background-color: #000;
-  --footer-text-color: #fff;
-  --footer-expanded-background-color: grey;
-  --footer-expanded-text-color: lightgrey;
+  /* Color Filters */
+  /* NOTE: Filters below were auto-generated on *https://codepen.io/sosuke/pen/Pjoqqp */
+  --primary-color-filter: invert(35%) sepia(75%) saturate(429%) hue-rotate(169deg) brightness(89%) contrast(92%);
 
 }
 
 /* Styles for Light Theme */
-body.theme.light {
-  --primary-color: #336699;
-  --secondary-color: #ffa000;
-  --accent-color: #336699;
-
+.theme.light {
   --background-color: #fff;
-  --text-color: #000;
+  --text-color: #283237;
   --surface-color: #f5f5f5;
-  --nav-color: #3d3d3d;
 
-  --footer-background-color: #000;
+  --hover-color: var(--primary-color);
+  --indicator-color: var(--primary-color);
+
+  --footer-background-color: #242424;
   --footer-text-color: #fff;
   --footer-expanded-background-color: #242424;
-  --footer-expanded-text-color: lightgrey;
+  --footer-expanded-text-color: #d3d3d3;
 
+  /* Color Filters */
+  /* NOTE: Filters below were auto-generated on *https://codepen.io/sosuke/pen/Pjoqqp */
+  --nav-color-filter: invert(22%) sepia(0%) saturate(0%) hue-rotate(166deg) brightness(99%) contrast(93%);
+  --footer-expanded-text-color-filter: invert(95%) sepia(0%) saturate(1%) hue-rotate(183deg) brightness(93%) contrast(86%);
 }
 
 /* Styles for Dark Theme */
-body.theme.dark {
-  --primary-color: #336699;
-  --secondary-color: #ffa000;
-  --accent-color: white;
-
+.theme.dark {
   --background-color: #01172f;
   --text-color: #e2e2e2;
   --surface-color: #f5f5f5;
-  --nav-color: #3d3d3d;
+
+  --hover-color: #fff;
+  --indicator-color: #fff;
 
   --footer-background-color: #000;
   --footer-text-color: #fff;
@@ -69,44 +64,74 @@ body {
 
 /* ====== TYPOGRAPHY ====== */
 
-/* NOTE: This is just for testing purposes and will be removed accordingly */
+/* NOTE: These are just for offline-testing purposes and will be removed accordingly */
 
-/* Roboto Regular */
+/* Mulish Light */
 @font-face {
-  font-family: 'Roboto-Regular';
-  src: url('assets/fonts/roboto/Roboto-Regular.ttf');
+  font-family: 'Mulish-Light';
+  src: url('assets/fonts/mulish/static/Mulish-Light.ttf');
 }
 
-/* Roboto Light */
+/* Mulish Regular */
 @font-face {
-  font-family: 'Roboto-Light';
-  src: url('assets/fonts/roboto/Roboto-Light.ttf');
+  font-family: 'Mulish-Regular';
+  src: url('assets/fonts/mulish/static/Mulish-Regular.ttf');
 }
 
 
-/* Roboto Bold */
+/* Mulish Medium */
 @font-face {
-  font-family: 'Roboto-Bold';
-  src: url('assets/fonts/roboto/Roboto-Bold.ttf');
+  font-family: 'Roboto-Medium';
+  src: url('assets/fonts/mulish/static/Mulish-Medium.ttf');
+}
+
+/* Mulish Bold */
+@font-face {
+  font-family: 'Mulish-Bold';
+  src: url('assets/fonts/mulish/static/Mulish-Bold.ttf');
+}
+
+
+/* Material Icons */
+/* https://developers.google.com/fonts/docs/material_icons#icon_font_for_the_web */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'), 
+    local('MaterialIcons-Regular'), 
+    url('assets/material-icons/MaterialIconsOutlined-Regular.otf') format('truetype');
 }
 
 
 /* === END of TYPOGRAPHY === */
 
 
-
+/** DEFAULT CSS RULES **/
 
 body {
   display: block;
   position: relative;
   width: 100%;
-  height: 100vh; /* <- be careful with this ;) */
-  font-family: Roboto,Helvetica,Arial,sans-serif;
-  line-height: 1.5;
+  height: 100%; /* <- be careful with this ;) */
   background-color: var(--background-color);
   color: var(--text-color);
+
+  font-family: Mulish, system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 24px; /* TODO: try 1.5 */
+  letter-spacing: -.2px;
+
+  /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
+
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
 }
+
 
 /* 
  * [Hidden]
@@ -132,13 +157,56 @@ span[stretch] {
 }
 
 a:hover {
-  color: var(--accent-color) !important;
+  color: var(--hover-color) !important;
 }
 
+/*
 h2 {
-  font-family: 'Roboto Mono', monospace;
+  font-family: Mulish, 'Roboto', monospace;
   font-weight: normal;
 }
+*/
+
+
+/* CSS rules to handle 'Material Icons' */
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.68); } /* b4: 0.54 */
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
 
 
 /*
@@ -166,6 +234,15 @@ section > h2 {
   align-items: center;
 }
 
+
+/*  Shadow Styles */
+
+
+.has-shadow {
+  filter: drop-shadow(2px 5px 10px rgba(0,0,0,0.3));
+}
+
+
 /* =============== ACCEUIL - CSS STYLES ============ */
 
 
@@ -186,7 +263,7 @@ section > h2 {
   flex-direction: column;
   width: 100%;
   min-height: 500px;
-  background-color: beige;
+  background-color: inherit;
   padding-top: var(--toolbar-height, 63px);
 }
 
@@ -195,8 +272,8 @@ section > h2 {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100%;
-  background-color: cyan;
+  height: var(--header-content-height, 600px);
+  /* background-color: cyan; */
 }
 
 
@@ -211,7 +288,7 @@ section > h2 {
 }
 
 #headerContent > section:first-child {
-  background-color: red;
+  /* background-color: red; */
 }
 
 
@@ -220,9 +297,12 @@ section > h2 {
   display: flex;
   flex-direction: row;
   position: relative;
-  width: 100%;
+  width: calc(100vw - 32px); /* HACK: was bleeding past the screen. TODO: Find another way though :) */
   height: 63px;
-  background: azure;
+  background: inherit;
+  padding: 0 16px;
+  opacity: 0.99;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 /* Tool Bar [fixed] - Let's try to imitate an App #LOL */
@@ -241,6 +321,7 @@ section > h2 {
   /* text-decoration: none; */
   color: inherit;
 }
+
 
 /* li - a - Menu Bar */
 #toolBar a > li {
@@ -261,9 +342,9 @@ section > h2 {
   right: 0;
   bottom: 0;
   width: 100%;
-  height: 5px;
-  border-radius: 5px 5px 0px 0px;
-  background: var(--accent-color, blue);
+  height: var(--indicator-size, 3px);
+  border-radius: 5px;
+  background: var(--indicator-color, blue);
 }
 
 /* inactive a indicator inside toolBar */
@@ -271,15 +352,58 @@ section > h2 {
   display: none;
 }
 
+
 /* Logo */
 #logo {
-  display: flex;
+  /* display: flex; */
 }
 
 /* Image of Logo */
+/*
 #logo img {
   display: block;
   position: relative;
+} */
+
+
+/* Logo Icon & Name of LaPlateforme_ */
+
+.logo-wrapper {}
+
+.logo-icon, .logo-name {
+  display: block;
+  position: relative;
+  filter: var(--primary-color-filter);
+}
+
+.logo-icon {
+  width: var(--logo-size, 60px);
+  height: var(--logo-size, 60px);
+}
+
+.logo-name {
+  width: calc(var(--logo-size, 60px) * 4); /* <- default: 240px */
+  height: var(--logo-size, 60px);
+}
+
+
+.icon-buttons {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: auto;
+  height: auto;
+  
+}
+
+.icon-button {
+  background-color: inherit;
+  color: inherit;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
 }
 
 
@@ -301,7 +425,6 @@ section > h2 {
   align-items: center;
   font-size: 100%;
   justify-content: space-around;
-  color: var(--nav-color);
 }
 
 
@@ -353,6 +476,55 @@ section > h2 {
 
 #content section > p, section > h2 {
   text-align: center;
+}
+
+/* ====== CSS ANIMATIONS ========= */
+
+/* 
+ * ~ homepicLoop ~ (ANIMATION)
+ *
+ * Let's create a basic animation
+ * to loop through all `homepics` 
+ * */
+@-webkit-keyframes homepicLoop {
+  0% { background-image: url('assets/images/homepic1-4x4.png'); }
+  25% { background-image: url('assets/images/homepic2-4x4.png'); }
+  50% { background-image: url('assets/images/homepic3-4x4.png'); }
+  75% { background-image: url('assets/images/homepic4-4x4.png'); }
+  100% { background-image: url('assets/images/homepic1-4x4.png'); }
+}
+
+/* Basic Fade In animation */
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ====== END of CSS ANIMATIONS ===== */
+
+/* Home Pic Styles */ 
+.homepics {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border-radius: 24px;
+  overflow: hidden;
+  margin: 48px;
+  
+}
+
+.homepic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+
+  -webkit-animation: homepicLoop 10s ease-in infinite alternate;
+  animation: homepicLoop 10s ease-in infinite alternate;
 }
 
 
@@ -456,6 +628,7 @@ footer {
   white-space: nowrap;
 }
 
+
 /** Footer Container */
 footer .container {
   height: inherit;
@@ -476,7 +649,7 @@ footer .links:not(.social) {
   align-items: center;
 }
 
-
+/* HACK: Add margins */
 footer:not([expanded]) .links:not(.social) .link {  
   margin: 8px 16px;
 }
@@ -514,8 +687,9 @@ footer[expanded] .box-wrapper:not(:first-child) li a {
 }
 
 /* Footer Logo */
-#footerLogo {
-  width: 80%;
+footer[expanded] .logo-wrapper {
+  /* width: 80%; */
+  filter: var(--footer-expanded-text-color-filter);
 }
 
 /* Set opcity of copyright text to 0.5 */
