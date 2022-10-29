@@ -29,18 +29,30 @@
     <!-- Title -->
     <title>LaPlateforme_ - Abraham Ukachi</title>
    
-    <!-- Roboto Font -->
+    <!-- Fonts, Fonts, Fonts !!! -->
     <!-- NOTE: I really don't like doing it this way but I run outta time , soo....:( -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,500,700,400italic' rel='stylesheet' type='text/css'>
-    <!--<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>-->
+    <!-- Mulish Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Roboto Font -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'> -->
+
+    <!-- Material Icons - https://github.com/google/material-design-icons/tree/master/font -->
+    <!-- https://material.io/resources/icons/?style=baseline -->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+
+
+    <!-- Base -->
+    <!-- TODO: change to 'site-la-plateforme' for production -->
+    <!-- <base href="/"> -->
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="laplateforme.css">
+
     
     <!-- Script -->
-    <!-- <script src="script.js"></script> -->
+    <!-- <script src="laplateforme.js"></script> -->
 
   </head>
   
@@ -55,64 +67,88 @@
 
         <!-- toolBar -->
         <div id="toolBar" fixed>
+          
+          <!-- Logo Wrapper -->
+          <a class="logo-wrapper horizontal centered" href="#">
+            <!-- Logo Icon -->
+            <img class="logo-icon" src="assets/logos/logo.svg">
+            <!-- Logo Name -->
+            <img class="logo-name" src="assets/logos/logoname.svg">
+          </a>
+          <!-- End of Logo Wrapper -->
+            
 
-            <!-- Home - LINK + Logo -->
-            <a id="logo" href="#" alt="La Plateforme_">
-              <img class="logo name" src="assets/logo/logo-name.png">
+          <!-- nav -->
+          <nav id="nav" class="list">
+            
+            <!-- Qui sommes-nous | LINK -->
+            <a href="qui-sommes-nous.html" active>
+              <li>
+                <span>Qui sommes-nous?</span>
+                <span class="indicator"></span>
+              </li>
             </a>
+            <!-- End of Qui sommes-nous | LINK -->
 
+            <!-- AWS Restart | LINK -->
+            <a href="aws-restart.html">
+              <li>
+                <span>AWS re/Start</span>
+                <span class="indicator"></span>
+              </li>
+            </a>
+            <!-- End of AWS Restart | LINK -->
 
-              <!-- nav -->
-              <nav id="nav" class="list">
-                
-                <!-- Qui sommes-nous | LINK -->
-                <a href="qui-sommes-nous.html" active>
-                  <li>
-                    <span>Qui sommes-nous?</span>
-                    <span class="indicator"></span>
-                  </li>
-                </a>
-                <!-- End of Qui sommes-nous | LINK -->
+            <!-- Contact | LINK -->
+            <a href="contact.html">
+              <li>
+                <span>Contact</span>
+                <span class="indicator"></span>
+              </li>
+            </a>
+            <!-- End of Contact | LINK -->
 
-                <!-- AWS Restart | LINK -->
-                <a href="aws-restart.html">
-                  <li>
-                    <span>AWS re/Start</span>
-                    <span class="indicator"></span>
-                  </li>
-                </a>
-                <!-- End of AWS Restart | LINK -->
+            <!-- News | LINK -->
+            <a href="news.html">
+              <li>
+                <span>News</span>
+                <span class="indicator"></span>
+              </li>
+            </a>
+            <!-- End of News | LINK -->
 
-                <!-- Contact | LINK -->
-                <a href="contact.html">
-                  <li>
-                    <span>Contact</span>
-                    <span class="indicator"></span>
-                  </li>
-                </a>
-                <!-- End of Contact | LINK -->
+            <!-- Plateforme Start | LINK  -->
+            <a href="plateforme-start.html">
+              <li>
+                <span>La Plateforome/Start</span>
+                <span class="indicator"></span>
+              </li>
+            </a>
+            <!-- End of Plateforme Start | LINK -->
+            
+          </nav>
+          <!-- End of nav -->
+          
+          <!-- Icon-Buttons-Wrapper -->
+          <div class="icon-buttons-wrapper horizontal centered">
+            
+            <!-- Dark Mode Icon Button -->
+            <button id="darkModeIconButton" class="icon-button">
+              <span class="material-icons md-dark">dark_mode</span>
+            </button>
 
-                <!-- News | LINK -->
-                <a href="news.html">
-                  <li>
-                    <span>News</span>
-                    <span class="indicator"></span>
-                  </li>
-                </a>
-                <!-- End of News | LINK -->
+            <!-- Light Mode Icon Button -->
+            <button id="lightModeIconButton" class="icon-button" hidden>
+              <span class="material-icons md-dark">light_mode</span>
+            </button>
 
-                <!-- Plateforme Start | LINK  -->
-                <a href="plateforme-start.html">
-                  <li>
-                    <span>La Plateforome/Start</span>
-                    <span class="indicator"></span>
-                  </li>
-                </a>
-                <!-- End of Plateforme Start | LINK -->
+            <!-- Search Icon Button -->
+            <button id="searchIconButton" class="icon-button">
+              <span class="material-icons md-dark">search</span>
+            </button>
 
-              </nav>
-              <!-- End of nav -->
-
+          </div>
+        
         </div>
         <!-- End of toolBar -->
 
@@ -127,7 +163,18 @@
 
           <!-- Second section in headerContent -->
           <section>
-            <span>section2</span>
+            <!-- Home Pics -->
+            <div class="homepics vertical centered">
+              <div class="homepic"></div>
+              <!-- 4 HomePic 4x4 -->
+              <!--
+              <img src="assets/images/homepic1-4x4.png" class="homepic">
+              <img src="assets/images/homepic2-4x4.png" class="homepic">
+              <img src="assets/images/homepic3-4x4.png" class="homepic">
+              <img src="assets/images/homepic4-4x4.png" class="homepic">
+              -->
+            </div>
+
           </section>
           <!-- End of Second section in headerContent -->
 
@@ -238,9 +285,9 @@
             <li class="box-wrapper">
               <!-- Box | YouTube -->
               <iframe allowfullscreen class="box" frameborder="0"
-                src="\https://www.youtube.com/embed/sDkjt3UTukg" 
+                src="httpps://www.youtube.com/embed/sDkjt3UTukg" 
                 title="Partenariat La Plateforme_ / Orange : Retours d'expériences de Mathilde & Luc" 
-                allow="accelerometer; autoplay; clipboard-write; \
+                allow="accelerometer; autoplay; clipboard-write;
                 encrypted-media; gyroscope; picture-in-picture">
               </iframe>
               <!-- End of Box | YouTube -->
@@ -251,9 +298,9 @@
             <li class="box-wrapper">
               <!-- Box - | YouTube -->
               <iframe allowfullscreen class="box" frameborder="0"
-                src="\https://www.youtube.com/embed/8U4CCAFLqEs" 
+                src="httpps://www.youtube.com/embed/8U4CCAFLqEs" 
                 title="Cyril Zimmermann à La Plateforme" 
-                allow="accelerometer; autoplay; clipboard-write; \
+                allow="accelerometer; autoplay; clipboard-write;
                 encrypted-media; gyroscope; picture-in-picture">
               </iframe>
               <!-- End of Box | YouTube -->
@@ -280,8 +327,17 @@
           <li class="box-wrapper">
             <!-- Box - Vertical & Centered -->
             <div class="box vertical centered">
-              <!-- Footer Logo - LaPlateforme -->
-              <img id="footerLogo" src="assets/logo/svg/logo-laplateforme-footer.svg">
+
+              <!-- Logo Wrapper -->
+              <a class="logo-wrapper horizontal centered" href="#">
+                <!-- Logo Icon -->
+                <img class="logo-icon" src="assets/logos/logo.svg">
+                <!-- Logo Name -->
+                <img class="logo-name" src="assets/logos/logoname.svg">
+              </a>
+              <!-- End of Logo Wrapper -->
+
+              <!-- <img id="footerLogo" src="assets/logo/svg/logo-laplateforme-footer.svg"> -->
               
               <!-- Social links -->
               <ul class="social links">
@@ -452,7 +508,7 @@
             <!-- Facebook Link -->
             <li class="facebook link">
               <a href="https://www.facebook.com/LaPlateformeIO">
-                <img src="assets/logo/svg/logo-facebook.svg">
+                <img src="assets/logos/svg/logo-facebook.svg">
               </a>
             </li>
             <!-- End of Facebook Link -->
@@ -461,7 +517,7 @@
             <!-- InstaGram Link -->
             <li class="instagram link">
               <a href="https://www.instagram.com/LaPlateformeIO/">
-                <img src="assets/logo/svg/logo-instagram.svg">
+                <img src="assets/logos/svg/logo-instagram.svg">
               </a>
             </li>
             <!-- End of InstaGram Link -->
@@ -469,7 +525,7 @@
             <!-- LinkedIn Link -->
             <li class="linkedin link">
               <a href="https://www.linkedin.com/school/laplateformeio/">
-                <img src="assets/logo/svg/logo-linkedin.svg">
+                <img src="assets/logos/svg/logo-linkedin.svg">
               </a>
             </li>
             <!-- End of LinkedIn Link -->
@@ -477,7 +533,7 @@
             <!-- Twitter Link -->
             <li class="twitter link">
               <a href="https://twitter.com/LaPlateformeIO">
-                <img src="assets/logo/svg/logo-twitter.svg">
+                <img src="assets/logos/svg/logo-twitter.svg">
               </a>
             </li>
             <!-- End of Twitter Link -->
