@@ -111,3 +111,9 @@ dist
 
 # templates files
 templates/
+
+# Swo file
+*.swo
+
+# Backup files
+*.backup
