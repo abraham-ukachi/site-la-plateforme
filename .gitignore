@@ -117,3 +117,6 @@ templates/
 
 # Backup files
 *.backup
+
+# Vim's SWN files
+*.swn
