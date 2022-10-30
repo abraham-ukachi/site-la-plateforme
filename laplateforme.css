@@ -10,8 +10,23 @@
   --accent-color: orange;
 
   /* Color Filters */
-  /* NOTE: Filters below were auto-generated on *https://codepen.io/sosuke/pen/Pjoqqp */
+  /* NOTE: Filters below were auto-generated on [CodePen.io](https://codepen.io/sosuke/pen/Pjoqqp) */
   --primary-color-filter: invert(35%) sepia(75%) saturate(429%) hue-rotate(169deg) brightness(89%) contrast(92%);
+
+  /* Social Color Filters */
+  /* Facebook - #3B5998 */
+  --facebook-color-filter: invert(35%) sepia(10%) saturate(3080%) hue-rotate(183deg) brightness(91%) contrast(90%); 
+  /* Twitter - #00ACED */
+  --twitter-color-filter: invert(43%) sepia(61%) saturate(1521%) hue-rotate(165deg) brightness(101%) contrast(101%);
+  /* Youtube - #FF0000 */
+  --youtube-color-filter: invert(26%) sepia(100%) saturate(7123%) hue-rotate(6deg) brightness(95%) contrast(125%);
+  /* Instagram - #FFF000 */
+  --instagram-color-filter: invert(79%) sepia(80%) saturate(806%) hue-rotate(1deg) brightness(106%) contrast(102%);
+  /* LinkedIn - #FFF */
+  --linkedin-color-filter: invert(91%) sepia(100%) saturate(35%) hue-rotate(254deg) brightness(109%) contrast(100%);
+
+  /* invert(31%) sepia(91%) saturate(4862%) hue-rotate(184deg) brightness(93%) contrast(101%); */
+
 
 }
 
@@ -21,18 +36,20 @@
   --text-color: #283237;
   --surface-color: #f5f5f5;
 
+  --button-background-color: var(--primary-color);
+  --button-text-color: #fff;
+
   --hover-color: var(--primary-color);
   --indicator-color: var(--primary-color);
 
   --progress-bar-color: var(--surface-color);
   --progress-value-color: #23496e; /* <- a darker primary color */
-
-
+  
   --footer-background-color: #242424;
   --footer-text-color: #fff;
   --footer-expanded-background-color: #242424;
   --footer-expanded-text-color: #d3d3d3;
-
+  
   /* Color Filters */
   /* NOTE: Filters below were auto-generated on *https://codepen.io/sosuke/pen/Pjoqqp */
   --nav-color-filter: invert(22%) sepia(0%) saturate(0%) hue-rotate(166deg) brightness(99%) contrast(93%);
@@ -44,6 +61,9 @@
   --background-color: #01172f;
   --text-color: #e2e2e2;
   --surface-color: #f5f5f5;
+
+  --button-background-color: var(--primary-color);
+  --button-text-color: #fff;
 
   --hover-color: #fff;
   --indicator-color: #fff;
@@ -111,6 +131,13 @@ body {
 }
 
 
+/* Apply the Mulish Font to key elements */
+
+body, button, h1, h2, h3, p {
+  font-family: Mulish, system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+}
+
+
 /* === END of TYPOGRAPHY === */
 
 
@@ -123,8 +150,6 @@ body {
   height: 100%; /* <- be careful with this ;) */
   background-color: var(--background-color);
   color: var(--text-color);
-
-  font-family: Mulish, system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
   font-size: 17px;
   line-height: 24px; /* TODO: try 1.5 */
   letter-spacing: -.2px;
@@ -139,6 +164,61 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* === Button Styles === */
+
+/** Default or [contained] button  **/
+button, button[contained] {
+  font-family: 'Mulish-Bold', system-ui, BlinkMacSystemFont, 'Roboto-Bold', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 20px;
+  border-radius: var(--button-border-radius, 5px);
+  border: 0;
+  background-color: var(--button-background-color, var(--primary-color));
+  color: var(--button-text-color, #fff);
+  padding: var(--button-padding, 8px 16px);
+  letter-spacing: 1.2px;
+  cursor: pointer;
+}
+
+
+/** Contained button **/
+button[contained] {
+  transition: transform 300ms ease;
+  transform: scale(1);
+}
+
+/** Outlined button **/
+button[outlined] {
+  background: none;
+  border: var(--outlined-button-border-size, 3px) solid var(--outlined-button-background-color, var(--primary-color));
+  color: var(--outlined-button-text-color, var(--primary-color));
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/** TODO: Text button styles **/
+button[text] {}
+
+
+/* Raised Button or button w/ focus */
+button[contained][raised], button[contained]:focus {
+  -moz-filter: drop-shadow(2px 4px 6px black);
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+
+/* Hovered [contained] button */
+button[contained]:hover, button[contained]:focus {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+button[contained]:active {
+ transform: scale(0.9);
+}
+
+/* === END of Button Styles === */
 
 /* 
  * [Hidden]
@@ -163,9 +243,25 @@ span[stretch] {
   flex: 1 auto;
 }
 
-a:hover {
-  color: var(--hover-color) !important;
+a, footer a {
+  color: inherit;
 }
+
+a:hover, footer a:hover, .list a:hover, .links a:hover {
+  color: var(--hover-color);
+}
+
+.social.links img {
+  filter: var(--footer-expanded-text-color-filter);
+}
+
+/* Changing the color of social links when a user hovers over them... */
+
+.facebook.link a:hover img { filter: var(--facebook-color-filter) }
+.instagram.link a:hover img { filter: var(--instagram-color-filter) }
+.linkedin.link a:hover img { filter: var(--linkedin-color-filter) }
+.twitter.link a:hover img { filter: var(--twitter-color-filter) }
+.youtube.link a:hover img { filter: var(--youtube-color-filter) }
 
 /*
 h2 {
@@ -342,7 +438,7 @@ section > h2 {
   width: auto;
   height: 100%;
   /* text-decoration: none; */
-  color: inherit;
+  /* color: inherit; */
 }
 
 
@@ -368,6 +464,8 @@ section > h2 {
   height: var(--indicator-size, 3px);
   border-radius: 5px;
   background: var(--indicator-color, blue);
+  margin-bottom: -1px;
+
 }
 
 /* inactive a indicator inside toolBar */
@@ -411,6 +509,10 @@ section > h2 {
   height: var(--logo-size, 60px);
 }
 
+.logo-april {
+  width: var(--logo-april-size, 150px);
+  height: auto;
+}
 
 .icon-buttons {
   display: flex;
@@ -483,6 +585,11 @@ section > h2 {
   width: 28px;
   height: 28px;
   margin: 8px;
+  opacity: var(--social-links-opacity, 0.5);
+}
+
+.social.links a:hover {
+  opacity: 1;
 }
 
 
@@ -651,8 +758,8 @@ footer {
   background-color: var(--footer-background-color, black);
   color: var(--footer-text-color, white);
   white-space: nowrap;
+  cursor: default;
 }
-
 
 /** Footer Container */
 footer .container {
@@ -689,11 +796,41 @@ footer[expanded] {
 
 footer[expanded] .box {
   background-color: #141414;
+  padding: 16px 24px;
+}
+
+/* All paragraphes in a expanded footer's box */
+footer[expanded] .box p {
+  display: inline-flex;
+  margin: 8px 0; 
+}
+
+footer[expanded] .logo-april {
+  align-self: start;
+  flex: 1 auto;
+}
+
+/* Contact Button */
+#contactButton {
+  --outlined-button-background-color: var(--footer-expanded-text-color);
+  --outlined-button-text-color: var(--footer-expanded-text-color);
+
+  margin-top: 24px;
+}
+
+#contactButton[outlined]:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+footer[expanded] .box {
+  background: var(--footer-expanded-box-background, none);
 }
 
 /* First box in the expanded footer */
 footer[expanded] .box-wrapper:first-child .box {
-  width: 400px;
+  /* width: 400px; */
 }
 
 footer[expanded] .box-wrapper:not(:first-child) li {
@@ -707,7 +844,7 @@ footer[expanded] .box-wrapper:not(:first-child) li a {
   height: inherit;
   display: flex;
   position: relative;
-  padding: 0 16px;
+  /* padding: 0 16px; */
   align-items: center;
 }
 
@@ -720,6 +857,33 @@ footer[expanded] .logo-wrapper {
 /* Set opcity of copyright text to 0.5 */
 span[copyright] {
   opacity: 0.5;
+}
+
+/* Footer for author */
+footer.author {
+  background-color: var(--footer-author-background-color, #191919);
+  color: var(--footer-author-color, #fff);
+  /* font-size: 12px; */
+}
+
+/* Paragraph in the author's footer */
+footer.author p {
+  opacity: 0.4;
+  cursor: default;
+
+  -webkit-transition: opacity 0.4s ease;
+  -moz-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+
+/* Hover and focus css rules for p in author's footer */
+footer.author p:hover, footer.author p:focus {
+  opacity: 1;
+}
+
+/* Turn the little heart red */
+footer.author .heart-icon {
+  color: red;
 }
 
 

@@ -47,6 +47,30 @@
     <!-- TODO: change to 'site-la-plateforme' for production -->
     <!-- <base href="/"> -->
 
+    <link rel="icon" href="assets/images/favicon.ico">
+
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- See https://goo.gl/qRE0vM -->
+    <meta name="theme-color" content="#981F0B">
+
+    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Wawet">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Wawet">
+
+    <!-- Homescreen icons -->
+    <link rel="apple-touch-icon" href="assets/images/manifest/icon-48x48.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/manifest/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="assets/images/manifest/icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/manifest/icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/images/manifest/icon-192x192.png">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="laplateforme.css">
 
@@ -59,6 +83,14 @@
        * I couldn't help myself. So.... Bite me !! ;)
        */
 
+
+      // Create `laPlateforme` object variable with a `isReady` key 
+      var laPlateforme = { 
+        isReady: false,
+        onReady: () => {} 
+      }; // <- `false` 'cause duh!! We ain't ready yet!! 
+
+
       // Let's do some stuff when this page loads...
       // NOTE: This is just a simulation 
       window.addEventListener('load', (event) => { 
@@ -70,10 +102,6 @@
         
         // Intialize some variables
         let currentProgress = 0;
-
-
-        // Create `laPlateforme` object variable with a `isReady` key 
-        var laPlateforme = { isReady: false }; // <- `false` 'cause duh!! We ain't ready yet!!
 
         // Now, get the document as doc
         let doc = event.target;
@@ -105,6 +133,9 @@
             // ...laPlateforme is READY!!!
             laPlateforme.isReady = true;
 
+            // call the `onReady` function of `laPlateforme`
+            laPlateforme.onReady();
+
             // So, hide the splash screen
             splashScreenEl.hidden = true;
             // Show the app layout
@@ -127,7 +158,7 @@
 
     </script>
 
-    <!-- <script src="laplateforme.js"></script> -->
+    <script src="laplateforme.js"></script>
 
   </head>
   
@@ -392,7 +423,7 @@
       <!-- End of Content - MAIN -->
 
       <!-- Expanded Footer -->
-      <!-- I Know...having two footers is not ideal but I don't have enough time right now :( --> 
+      <!-- I Know...having two or more footers is not ideal but I don't have enough time right now :( --> 
       <!-- TODO (Optimization): Remove this expanded footer, and use JUST ONE !!! -->
       <footer class="vertical" expanded>
         <!-- Horizontal List -->
@@ -450,6 +481,15 @@
                 </li>
                 <!-- End of Twitter Link -->
 
+              
+                <!-- YouTube Link -->
+                <li class="youtube link">
+                  <a href="https://www.youtube.com/c/LaPlateformeIO">
+                    <img src="assets/logos/svg/logo-youtube.svg">
+                  </a>
+                </li>
+                <!-- End of Twitter Link -->
+
               </ul>
               <!-- End of Social Links -->
 
@@ -463,11 +503,11 @@
           <li class="box-wrapper">
             <!-- Box -->
             <div class="box">
+              <!-- H3 Title - La Plateforme -->
+              <h3>La Plateforme</h3>
+
               <!-- Vertical List -->
               <ul class="list vertical">
-                <!-- La Plateforme [title] -->
-                <li title><strong>La Plateforme</strong></li>
-
                 <!-- Acceuil -->
                 <li>
                   <a href="/" target="_blank">
@@ -526,7 +566,50 @@
           <!-- Box-Wrapper 3 -->
           <li class="box-wrapper">
             <!-- Box -->
-            <div class="box"></div>
+            <div class="box">
+              <!-- H3 Title - Les Formations -->
+              <h3>Les Formations</h3>
+
+              <!-- Vertical List -->
+              <ul class="list vertical">
+                <!-- La Plateforme / Start -->
+                <li>
+                  <a href="plateforme-start.html" target="_blank">
+                    <span>La Plateforme/Start</span>
+                  </a>
+                </li>
+
+                <!-- Coding School -->
+                <li>
+                  <a href="https://laplateforme.io/coding-school/" target="_blank">
+                    <span>Coding School</span>
+                  </a>
+                </li>
+                
+                <!-- Bachelor IT -->
+                <li>
+                  <a href="https://laplateforme.io/bachelor-it/" target="_blank">
+                    <span>Bachelor IT</span>
+                  </a>
+                </li>
+                
+                <!-- Artificial Intelligence School -->
+                <li>
+                  <a href="https://laplateforme.io/ai-school/" target="_blank">
+                    <span>Artificial Intelligence School</span>
+                  </a>
+                </li>
+
+                <!-- Cyber Security School -->
+                <li>
+                  <a href="https://laplateforme.io/cyber-security-school/" target="_blank">
+                    <span>Cyber Security School</span>
+                  </a>
+                </li>
+
+              </ul>
+              <!-- End of Vertical List -->
+            </div>
             <!-- End of Box -->
           </li>
           <!-- End of Box-Wrapper 3 -->
@@ -534,7 +617,32 @@
           <!-- Box-Wrapper 4 -->
           <li class="box-wrapper">
             <!-- Box -->
-            <div class="box"></div>
+            <div class="box vertical">
+              <!-- H3 Title - Informtions -->
+              <h3>Informations</h3>
+
+              <!-- Address / Location / Place -->
+              <p><a href="https://goo.gl/maps/UbumHn7r4nATSEsg8" class="horizontal" target="_blank">
+                <span class="material-icons">place</span>&nbsp;&nbsp;
+                <span>8 rue d’hozier, 13002 Marseille</span>
+              </a></p>
+              <!-- End of Address / Location / Place -->
+
+              <!-- Phonenumber --> 
+              <p><a href="tel:04.84.89.43.69" class="horizontal" target="_blank">
+                <span class="material-icons">phone</span>&nbsp;&nbsp;
+                <span>04.84.89.43.69</span>
+              </a></p>
+              <!-- End of Phonenumber -->
+
+              
+              <!-- Outlined Contact Button -->
+              <button id="contactButton" outlined>Contact</button>
+
+              <!-- April Logo -->
+              <img class="logo-april" src="assets/logos/svg/logo-april.svg" alt="April Logo">
+
+            </div>
             <!-- End of Box -->
           </li>
           <!-- End of Box-Wrapper 4 -->
@@ -621,9 +729,9 @@
       </footer>
       <!-- End of Footer -->
       
-      <!-- Footer -->
-      <footer>
-        <p>Made with love by <a href="abraham-ukachi.students-laplateforme.com">abraham-ukachi</a></p>
+      <!-- Footer about the author (a.k.a moi)-->
+      <footer class="author centered">
+        <p>Made with <span class="heart-icon">&nbsp;&#10084;&nbsp;</span> by <a href="https://github.com/abraham-ukachi"><b>abraham-ukachi</b></a></p>
       </footer>
       <!-- End of Footer -->
 
