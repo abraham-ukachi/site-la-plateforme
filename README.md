@@ -59,10 +59,11 @@ Here is a list of all the names, `.html` and `.css` files to be submitted and th
 The folder & file structure of my CV:
   
 - [**assets**](./assets/)
-- - [**icons**](./assets/icons/)
+- - [**logos**](./assets/logos/)
 - - [**images**](./assets/images/)
 - LICENSE
 - README.md
+- manifest.json
 - ...
 - **acceuil.html**
 - **contact.html**
