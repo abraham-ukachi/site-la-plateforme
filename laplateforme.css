@@ -24,6 +24,10 @@
   --hover-color: var(--primary-color);
   --indicator-color: var(--primary-color);
 
+  --progress-bar-color: var(--surface-color);
+  --progress-value-color: #23496e; /* <- a darker primary color */
+
+
   --footer-background-color: #242424;
   --footer-text-color: #fff;
   --footer-expanded-background-color: #242424;
@@ -43,6 +47,9 @@
 
   --hover-color: #fff;
   --indicator-color: #fff;
+
+  --progress-bar-color: var(--surface-color);
+  --progress-value-color: var(--primary-color);
 
   --footer-background-color: #000;
   --footer-text-color: #fff;
@@ -217,6 +224,26 @@ section > h2 {
 
 /* ========= Horizontal & Vertical - Flex Layout Styles ====== */
 
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+/* Screens & Fixed Layouts */
+.screen.layout, .layout[fixed] {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: inherit;
+  color: inherit;
+}
+
 /* Vertical Flex Layout */
 .vertical {
   display: flex;
@@ -249,10 +276,6 @@ section > h2 {
 
 /* App Layout */
 #appLayout {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
   background: inherit;
   color: inherit;
 }
@@ -308,7 +331,7 @@ section > h2 {
 /* Tool Bar [fixed] - Let's try to imitate an App #LOL */
 #toolBar[fixed] {
   position: fixed;
-  z-index: 100;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;
@@ -379,6 +402,8 @@ section > h2 {
 .logo-icon {
   width: var(--logo-size, 60px);
   height: var(--logo-size, 60px);
+  max-width: var(--logo-size-max, 512px);
+  max-height: var(--logo-size-max, 512px);
 }
 
 .logo-name {
@@ -697,4 +722,59 @@ span[copyright] {
   opacity: 0.5;
 }
 
-/* =============== CONTACT - CSS STYLES ============ */
+
+/* =============== DIALOG LAYOUT STYLES  ============ */
+
+#dialogLayout {}
+
+#navDialog {}
+
+#navDialog .indicator {}
+
+.dialog {}
+
+
+
+/* =============== SPLASH-SCREEN LAYOUT STYLES  ============ */
+
+/* Default Splash Screen Theme Styles */
+#splashScreen {
+  --logo-size: calc(100vh / 2); /* <- Set the logo's size to half of the screen's height */
+  --logo-size-max: 250px;
+}
+
+/* Splash Screen */
+#splashScreen {
+  background: var(--splashscreen-background-color, inherit)
+}
+
+/* Progress Bar in Splash Screen */
+#splashScreen progress {
+  /* reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* Get rid of default border in Firefox */
+  border: none;
+  margin-top: 24px;
+  overflow: hidden;
+
+  width: var(--splashscreen-progress-width, 80%);
+  height: var(--splashscreen-progress-height, 10px);
+  max-width: var(--splashscreen-progress-width-max, 350px); 
+  border-radius: var(--splashscreen-progress-border-radius, 5px);
+}
+
+/* Styling the progress container using the pseudo class: `-webkit-progress-bar`*/
+#splashScreen progress::-webkit-progress-bar {
+  background-color: var(--splashscreen-progress-bar-color, var(--progress-bar-color));
+}
+
+/* Styling the progress' value using the pseudo class: `-webkit-progress-value`*/
+#splashScreen progress::-webkit-progress-value {
+  background-color: var(--splashscreen-progress-value-color, var(--progress-value-color));
+  transition: width 60ms ease;
+}
+
+

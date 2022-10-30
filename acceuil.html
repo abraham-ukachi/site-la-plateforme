@@ -24,7 +24,7 @@
     <meta name="generator" content="abCV">
     <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <meta name="description" content="LaPlateforme_ by Abraham Ukachi">
+    <meta name="description" content="LaPlateforme_ - Made with :love: by Abraham Ukachi">
 
     <!-- Title -->
     <title>LaPlateforme_ - Abraham Ukachi</title>
@@ -52,6 +52,81 @@
 
     
     <!-- Script -->
+    <!-- ^^^^^^ A little JS doesn't hurt ;) -->
+    <script>
+      /*
+       * I'm well aware that this project doesn't require a script but
+       * I couldn't help myself. So.... Bite me !! ;)
+       */
+
+      // Let's do some stuff when this page loads...
+      // NOTE: This is just a simulation 
+      window.addEventListener('load', (event) => { 
+        // ...Define a couple of constants & variables
+
+        // Set some constants
+        const TIMEOUT_PROGRESS = 60; // 0.3 seconds = 300 milliseconds
+        const INCREMENT_PROGRESS = 1;
+        
+        // Intialize some variables
+        let currentProgress = 0;
+
+
+        // Create `laPlateforme` object variable with a `isReady` key 
+        var laPlateforme = { isReady: false }; // <- `false` 'cause duh!! We ain't ready yet!!
+
+        // Now, get the document as doc
+        let doc = event.target;
+
+        
+        // Get the splash screen element as `splashScreenEl`
+        let splashScreenEl = doc.getElementById('splashScreen');
+        // Get the app layout element as `appLayoutEl`
+        let appLayoutEl = doc.getElementById('appLayout');
+        // Get the progress bar element from `splashScreenEl` as `progressBarEl`
+        let progressBarEl = splashScreenEl.querySelector('progress');
+        
+        
+        // Create a progress handler
+        let progressHandler = () => {
+          // Update the current progress with the progress bar's value
+          progressCount = progressBarEl.value;
+
+          // DEBUG [4dbsmaster]: tell me about it :)
+          console.log(`[progressHandler](1): progressCount => ${progressCount}`);
+
+          // NOTE: You can do something with `progressCount` here
+          
+          // Increase the progress value by the predefined `INCREMENT_PROGRESS`
+          progressBarEl.value += INCREMENT_PROGRESS;
+
+          // If the progress Count is 100... 
+          if (progressCount == 100) {
+            // ...laPlateforme is READY!!!
+            laPlateforme.isReady = true;
+
+            // So, hide the splash screen
+            splashScreenEl.hidden = true;
+            // Show the app layout
+            appLayoutEl.hidden = false;
+            
+            // Now, stop the progress Timer 
+            clearInterval(progressTimer);
+
+            // DEBUG [4dbsmaster]: tell me about it :)
+            console.log(`[progressHandler](2): LaPlateforme is \x1b[32mReady\x1b[0m !!!`);
+          };
+          
+        };
+        
+        // Let's set an interval named `progressTimer` to run our
+        // `progressHandler` every 0.3 seconds.
+        progressTimer = setInterval(progressHandler, TIMEOUT_PROGRESS);
+
+      });
+
+    </script>
+
     <!-- <script src="laplateforme.js"></script> -->
 
   </head>
@@ -60,7 +135,7 @@
   <body class="theme light" fullbleed>
     
     <!-- App Layout -->
-    <div id="appLayout">
+    <div id="appLayout" class="layout" hidden>
 
       <!-- Header -->
       <div id="header">
@@ -337,7 +412,7 @@
               </a>
               <!-- End of Logo Wrapper -->
 
-              <!-- <img id="footerLogo" src="assets/logo/svg/logo-laplateforme-footer.svg"> -->
+              <!-- <img id="footerLogo" src="assets/logos/svg/logo-laplateforme-footer.svg"> -->
               
               <!-- Social links -->
               <ul class="social links">
@@ -345,7 +420,7 @@
                 <!-- Facebook Link -->
                 <li class="facebook link">
                   <a href="https://www.facebook.com/LaPlateformeIO">
-                    <img src="assets/logo/svg/logo-facebook.svg">
+                    <img src="assets/logos/svg/logo-facebook.svg">
                   </a>
                 </li>
                 <!-- End of Facebook Link -->
@@ -354,7 +429,7 @@
                 <!-- InstaGram Link -->
                 <li class="instagram link">
                   <a href="https://www.instagram.com/LaPlateformeIO/">
-                    <img src="assets/logo/svg/logo-instagram.svg">
+                    <img src="assets/logos/svg/logo-instagram.svg">
                   </a>
                 </li>
                 <!-- End of InstaGram Link -->
@@ -362,7 +437,7 @@
                 <!-- LinkedIn Link -->
                 <li class="linkedin link">
                   <a href="https://www.linkedin.com/school/laplateformeio/">
-                    <img src="assets/logo/svg/logo-linkedin.svg">
+                    <img src="assets/logos/svg/logo-linkedin.svg">
                   </a>
                 </li>
                 <!-- End of LinkedIn Link -->
@@ -370,7 +445,7 @@
                 <!-- Twitter Link -->
                 <li class="twitter link">
                   <a href="https://twitter.com/LaPlateformeIO">
-                    <img src="assets/logo/svg/logo-twitter.svg">
+                    <img src="assets/logos/svg/logo-twitter.svg">
                   </a>
                 </li>
                 <!-- End of Twitter Link -->
@@ -545,10 +620,93 @@
         <!-- End of Container -->
       </footer>
       <!-- End of Footer -->
-
+      
+      <!-- Footer -->
+      <footer>
+        <p>Made with love by <a href="abraham-ukachi.students-laplateforme.com">abraham-ukachi</a></p>
+      </footer>
+      <!-- End of Footer -->
 
     </div>
     <!-- End of App Layout -->
+    
+    <!-- Dialog Layout -->
+    <div id="dialogLayout" class="layout" fixed hidden>
+
+      <!-- Navigation Dialog -->
+      <div id="navDialog" class="dialog">
+        <!-- Vertical List -->
+          <nav class="list vertical">
+            
+            <!-- Qui sommes-nous | LINK -->
+            <a href="qui-sommes-nous.html" active>
+              <li>
+                <span>Qui sommes-nous?</span>
+                <span class="indicator"></span>
+              </li>
+            </a>
+            <!-- End of Qui sommes-nous | LINK -->
+
+            <!-- AWS Restart | LINK -->
+            <a href="aws-restart.html">
+              <li>
+                <span>AWS re/Start</span>
+                <span class="indicator"></span>
+              </li>
+            </a>
+            <!-- End of AWS Restart | LINK -->
+
+            <!-- Contact | LINK -->
+            <a href="contact.html">
+              <li>
+                <span>Contact</span>
+                <span class="indicator"></span>
+              </li>
+            </a>
+            <!-- End of Contact | LINK -->
+
+            <!-- News | LINK -->
+            <a href="news.html">
+              <li>
+                <span>News</span>
+                <span class="indicator"></span>
+              </li>
+            </a>
+            <!-- End of News | LINK -->
+
+            <!-- Plateforme Start | LINK  -->
+            <a href="plateforme-start.html">
+              <li>
+                <span>La Plateforome/Start</span>
+                <span class="indicator"></span>
+              </li>
+            </a>
+            <!-- End of Plateforme Start | LINK -->
+            
+          </nav>
+          <!-- End of nav -->
+        <!-- End of Vertical List -->
+      </div>
+      <!-- End of Navigation Dialog -->
+
+    </div>
+    <!-- End of Dialog Layout -->
+
+    <!-- Splash Screen Layout -->
+    <div id="splashScreen" class="screen layout centered">
+      
+      <!-- Logo Wrapper -->
+      <div class="logo-wrapper">
+        <img class="logo-icon" src="assets/logos/logo.svg">
+      </div>
+      <!-- End of Logo Wrapper -->
+
+      <!-- Progress -->
+      <progress value="10" max="100"></progress>
+
+    </div>
+    <!-- End of Splash Screen Layout -->
+
   
   </body>
 
