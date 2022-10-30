@@ -26,6 +26,8 @@ These are a couple of the main requirements for this school project:
 
 1. The files must be named **acceuil.html**, **qui-sommes-nous.html**, **aws-restart.html**, **contact.html**, **news.html**, **platforme-start.html**, **laplateforme.css** and must be found on github at *https://github.com/prenom-nom/site-la-plateforme*
 
+> NOTE: In the spirit of "doing more", I added a couple of files (i.e. **manifest.json**, **laplateforme.js**) and a folder (i.e. **assets**).
+
 ## Jobs
 > MOTTO: I'll always do more 😜
 
@@ -56,7 +58,7 @@ Here is a list of all the names, `.html` and `.css` files to be submitted and th
 
 ### Structure
 
-The folder & file structure of my CV:
+The folder & file structure of this project:
   
 - [**assets**](./assets/)
 - - [**logos**](./assets/logos/)
@@ -98,6 +100,7 @@ open contact.html
 
 ### TODOs
 
+- [ ] Add mobile compatibility to all pages.
 - [ ] Optimize [**acceuil.html**](./acceuil.html) file
 - [ ] Remove unnecessary comments
 
