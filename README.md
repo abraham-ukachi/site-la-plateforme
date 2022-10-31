@@ -100,6 +100,7 @@ open contact.html
 
 ### TODOs
 
+- [ ] Create a dialog layout
 - [ ] Add mobile compatibility to all pages.
 - [ ] Optimize [**acceuil.html**](./acceuil.html) file
 - [ ] Remove unnecessary comments

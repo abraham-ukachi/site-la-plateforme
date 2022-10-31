@@ -32,9 +32,17 @@
 
 /* Styles for Light Theme */
 .theme.light {
+  --primary-container-color: #000;
+  --secondary-container-color: #dc8b03;
+  --surface-container-color: #FFF;
+
   --background-color: #fff;
   --text-color: #283237;
   --surface-color: #f5f5f5;
+
+  /* Sections */
+  --section-testimonials-background-color: var(--secondary-color);
+  /*--section-box-testimonials-background-color: #583501; */
 
   --button-background-color: var(--primary-color);
   --button-text-color: #fff;
@@ -44,37 +52,65 @@
 
   --progress-bar-color: var(--surface-color);
   --progress-value-color: #23496e; /* <- a darker primary color */
-  
-  --footer-background-color: #242424;
-  --footer-text-color: #fff;
-  --footer-expanded-background-color: #242424;
-  --footer-expanded-text-color: #d3d3d3;
-  
+   
+  /* Footer */
+  --footer-background-color: #fbfbfb; /* b4: #242424 */
+  --footer-text-color: #262626; /* #fff */
+  --footer-expanded-background-color: #fbfbfb; /* b4: #242424 */
+  --footer-expanded-text-color: #262626; /* b4: #868686 & #d3d3d3 */
+ 
+  --footer-author-background-color: #191919;
+  --footer-author-text-color: #FFF;
+
   /* Color Filters */
   /* NOTE: Filters below were auto-generated on *https://codepen.io/sosuke/pen/Pjoqqp */
   --nav-color-filter: invert(22%) sepia(0%) saturate(0%) hue-rotate(166deg) brightness(99%) contrast(93%);
-  --footer-expanded-text-color-filter: invert(95%) sepia(0%) saturate(1%) hue-rotate(183deg) brightness(93%) contrast(86%);
+  --footer-expanded-text-color-filter: invert(13%) sepia(63%) saturate(0%) hue-rotate(180deg) brightness(96%) contrast(99%);
+
+  /* Instagram - #521089 (Purple) */
+  --instagram-color-filter: invert(11%) sepia(77%) saturate(4352%) hue-rotate(270deg) brightness(89%) contrast(103%);
+  /* LinkedIn - #000 */
+  --linkedin-color-filter: invert(0%) sepia(3%) saturate(0%) hue-rotate(279deg) brightness(97%) contrast(106%); 
+
+  --divider-color: rgba(0,0,0,0.1);
+
 }
 
 /* Styles for Dark Theme */
 .theme.dark {
+  --primary-container-color: #000;
+  --secondary-container-color: #583501;
+  --surface-container-color: #000409;
+
   --background-color: #01172f;
   --text-color: #e2e2e2;
-  --surface-color: #f5f5f5;
+  --surface-color: #000b18;
+
+  /* Sections */
+  --section-testimonials-background-color: #332001;
 
   --button-background-color: var(--primary-color);
   --button-text-color: #fff;
 
-  --hover-color: #fff;
-  --indicator-color: #fff;
+  --hover-color: cyan;
+  --indicator-color: cyan;
 
   --progress-bar-color: var(--surface-color);
   --progress-value-color: var(--primary-color);
 
-  --footer-background-color: #000;
-  --footer-text-color: #fff;
-  --footer-expanded-background-color: grey;
-  --footer-expanded-text-color: lightgrey;
+  /* Footer */
+  --footer-background-color: #00070f;
+  --footer-text-color: #858585;
+  --footer-expanded-background-color: #00070f;
+  --footer-expanded-text-color: #858585;
+
+  --footer-author-background-color: #000;
+  --footer-author-text-color: #FFF;
+
+ --footer-expanded-text-color-filter: invert(55%) sepia(0%) saturate(0%) hue-rotate(256deg) brightness(96%) contrast(84%);
+
+  --divider-color: rgba(255,255,255,0.1);
+
 }
 
 /* Dimensions 4 Theme */
@@ -304,11 +340,11 @@ h2 {
 .material-icons.md-48 { font-size: 48px; }
 
 /* Rules for using icons as black on a light background. */
-.material-icons.md-dark { color: rgba(0, 0, 0, 0.68); } /* b4: 0.54 */
+.material-icons.md-dark, .theme.light .material-icons { color: rgba(0, 0, 0, 0.68); } /* b4: 0.54 */
 .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
 
 /* Rules for using icons as white on a dark background. */
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light, .theme.dark .material-icons { color: rgba(255, 255, 255, 0.8); }
 .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
 
 
@@ -421,7 +457,7 @@ section > h2 {
   background: inherit;
   padding: 0 16px;
   opacity: 0.99;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid var(--divider-color, rgba(0,0,0,0.1));
 }
 
 /* Tool Bar [fixed] - Let's try to imitate an App #LOL */
@@ -598,7 +634,7 @@ section > h2 {
 #content section {
   width: 100%;
   min-height: 500px;
-  background-color: #f8f8f8;
+  background-color: var(--surface-color, #f5f5f5);
 }
 
 #content section > h2 {
@@ -674,7 +710,7 @@ section > h2 {
   margin: 24px;
   position: relative;
   border: 0;
-  background-color: white;
+  background-color: var(--box-color, var(--surface-container-color, #FFF));
   border-radius: 24px;
   overflow: hidden;
 }
@@ -689,15 +725,18 @@ section > h2 {
 
 /* ======== PROFESSIONS CONTAINER - <section> ============ */
 
+
+/* Professions Container - SECTION */
 section#professionsContainer {
-  background-color: #e2e2e2;
+  background-color: var(--section-professions-background-color, var(--surface-color));
 }
 
 
-section#professionsContainer {}
 
-/* Boxes in professions container */
-/* #professionsContainer .box */
+/* Box in Professions Container - SECTION */
+section#professionsContainer .box {
+  background-color: var(--section-box-professions-background-color, var(--surface-container-color, #FFF));
+}
 
 
 /* ======== END of PROFESSIONS CONTAINER - <section> ======== */
@@ -705,19 +744,19 @@ section#professionsContainer {}
 
 
 
-
-
-
-
 /* ======== TRANSFORMATIONS CONTAINER - <section> ============ */
 
+/* Transformations Container - SECTION */
 section#transformationsContainer {
-  background-color: #e2e2e2;
+  background-color: var(--section-transformations-background-color, var(--surface-color));
 }
 
 
-section#transformationsContainer {}
 
+/* Box in Transformations Container - SECTION */
+section#transformationsContainer .box {
+  background-color: var(--section-box-transformations-background-color, var(--surface-container-color, #FFF));
+}
 
 /* ======== END of TRANSFORMATIONS CONTAINER - <section> ======== */
 
@@ -729,13 +768,15 @@ section#transformationsContainer {}
 
 /* ======== TESTIMONIALS CONTAINER - <section> ============ */
 
+/* Testimonials Container - SECTIOn */
 section#testimonialsContainer {
-  background-color: var(--secondary-color);
+  background-color: var(--section-testimonials-background-color, var(--secondary-color));
 }
 
 
+/* Testimonials Container - SECTION */
 section#testimonialsContainer .box {
-  background-color: #dc8b03;
+  background-color: var(--section-box-testimonials-background-color, var(--secondary-container-color));
 }
 
 
