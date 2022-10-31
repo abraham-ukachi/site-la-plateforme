@@ -1049,3 +1049,25 @@ footer.author .heart-icon {
 }
 
 
+
+/* ============ COMING SOON - .section ========== */
+
+section.comingSoon {
+  height: inherit !important;
+}
+
+section.comingSoon .section-container {
+  max-width: 1200px;
+  text-align: center;
+}
+
+section.comingSoon button {
+  max-width: 500px;
+  margin: 8px auto;
+}
+
+section.comingSoon code {
+  margin-top: 48px;
+}
+
+/* ========= END of COMING SOON - .section ========== */
