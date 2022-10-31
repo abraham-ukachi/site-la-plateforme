@@ -50,7 +50,7 @@ let _handleDarkModeIconButtonClick = (event) => {
  */
 let _handleLightModeIconButtonClick = (event) => {
   // toggle theme
-  toggleTheme()
+  toggleTheme();
 
   // DEBUG [4dbsmaster]: tell me about it :)
   console.log(`[_handleLightModeIconButtonClick]: event.target => `, event.target);
@@ -85,12 +85,21 @@ let toggleTheme = () => {
 
   // replace the `currentTheme` w/ the `nextTheme`
   bodyEl.classList.replace(currentTheme, nextTheme);
+  
+  // Check browser support for Storage
+  if (typeof(Storage) !== 'undefined') {
+    // save theme to local storage
+    localStorage.setItem('theme', nextTheme);
+
+    // DEBUG [4dbsmster]: tell me about it :)
+    console.log(`[toggleTheme](1): nextTheme => \x1b[1m${nextTheme}\x1b[0m has been saved to localStorage!!`);
+  }
 
   // notify / update the theme icon buttons
   _notifyThemeIconButtons();
 
   // DEBUG [4dbsmaster]: tell me about it :)
-  console.log(`[toggleTheme]: current theme (${currentTheme}) has been changed to "${nextTheme}"`);
+  console.log(`[toggleTheme](2): current theme (${currentTheme}) has been changed to "${nextTheme}"`);
 };
 
 

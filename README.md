@@ -24,7 +24,7 @@ By including images, texts, videos... and add your **personal touch**.
 
 These are a couple of the main requirements for this school project:
 
-1. The files must be named **acceuil.html**, **qui-sommes-nous.html**, **aws-restart.html**, **contact.html**, **news.html**, **platforme-start.html**, **laplateforme.css** and must be found on github at *https://github.com/prenom-nom/site-la-plateforme*
+1. The files must be named **accueil.html**, **qui-sommes-nous.html**, **aws-restart.html**, **contact.html**, **news.html**, **platforme-start.html**, **laplateforme.css** and must be found on github at *https://github.com/prenom-nom/site-la-plateforme*
 
 > NOTE: In the spirit of "doing more", I added a couple of files (i.e. **manifest.json**, **laplateforme.js**) and a folder (i.e. **assets**).
 
@@ -46,7 +46,7 @@ Here is a list of all the names, `.html` and `.css` files to be submitted and th
 
 | No. | Name | File | Status |
 |:----|:-----|:-----|:-------|
-| 1 | *`Acceuil`* | **acceuil.html** | _*In progress*_ | 
+| 1 | *`Acceuil`* | **accueil.html** | _*In progress*_ | 
 | 2 | *`Qui sommes nous`* | **qui-sommes-nous.html** | Pending | 
 | 3 | *`AWS Restart`* | **aws-restart.html** | Pending | 
 | 4 | *`Contact`* | **contact.html** | Pending | 
@@ -67,7 +67,7 @@ The folder & file structure of this project:
 - README.md
 - manifest.json
 - ...
-- **acceuil.html**
+- **accueil.html**
 - **contact.html**
 
 > NOTE: This is just a snippet.
@@ -87,7 +87,7 @@ Just open the any of the `.html` files with your default browser, and voila !
 To open the **home page**, enter the following command in your terminal:
 
 ```sh
-open acceuil.html
+open accueil.html
 ```
 
 #### Open Contact page
@@ -102,6 +102,6 @@ open contact.html
 
 - [ ] Create a dialog layout
 - [ ] Add mobile compatibility to all pages.
-- [ ] Optimize [**acceuil.html**](./acceuil.html) file
+- [ ] Optimize [**accueil.html**](./accueil.html) file
 - [ ] Remove unnecessary comments
 

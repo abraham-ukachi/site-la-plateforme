@@ -124,6 +124,27 @@
           console.log(`[progressHandler](1): progressCount => ${progressCount}`);
 
           // NOTE: You can do something with `progressCount` here
+
+          // At 60%...
+          if (progressCount == 60) {
+            // First check for browser support
+            // if the browser supports it...
+            if (typeof(Storage) !== 'undefined') {
+              // ...get the theme from local storage as `theme`
+              let theme = localStorage.getItem('theme');
+              // DEBUG [4dbsmaster]: tell me about it :)
+              console.log(`[_progressHandler]: theme => ${theme}`);
+             
+              // if a theme was found in storage...
+              if (typeof(theme) !== 'undefined') {
+                // ...remove all the themes in body
+                document.body.classList.remove('light', 'dark');
+                // update the theme
+                document.body.classList.add(theme);
+              }
+
+            }
+          }
           
           // Increase the progress value by the predefined `INCREMENT_PROGRESS`
           progressBarEl.value += INCREMENT_PROGRESS;
@@ -261,14 +282,29 @@
         <!-- headerContent -->
         <div id="headerContent">
 
-          <!-- First section in headerContent -->
-          <section>
-            <span>section 1</span>
-          </section>
-          <!-- End of First section in headerContent -->
+          <!-- Inscriptions Section - First section in headerContent -->
+          <section class="inscriptions">
+            <!-- H1 Title -->
+            <h1><strong>La Plateforme</strong> - <span>le campus méditerranéen du numérique !</span></h1>
+            <!-- First paragraph -->
+            <p>Des parcours frais de scolarité à zéro euros, ouverts à tous les talents, sans conditions de ressources et de diplômes.</p>
+            <!-- Second paragraph -->
+            <p>Un lieu de rencontre entre entreprises et apprenants pour le bénéfice de tous !</p>
+            <!-- Text in code syntax/format -->
+            <code>Le digital c'est <strong>maintenant</strong> !</code>
+            <!-- Button -->
+            <button contained rounded>Les inscriptions sont ouvertes *</button>
+            <!-- Caption -->
+            <div class="caption vertical centered">
+              <span>* sur dossier et test d’admission.</span>
+              <span>Titres de formations homologués par l’Etat, référencés au RNCP</span>
+            </div>
 
-          <!-- Second section in headerContent -->
-          <section>
+          </section>
+          <!-- End of Inscriptions Section - First section in headerContent -->
+
+          <!-- Pics Section - Second section in headerContent -->
+          <section class="pics">
             <!-- Home Pics -->
             <div class="homepics vertical centered">
               <div class="homepic"></div>
@@ -282,7 +318,7 @@
             </div>
 
           </section>
-          <!-- End of Second section in headerContent -->
+          <!-- Pics Section - End of Second section in headerContent -->
 
         </div>
         <!-- End of headerContent -->
@@ -390,11 +426,11 @@
             <!-- 1st Box-Wrapper -->
             <li class="box-wrapper">
               <!-- Box | YouTube -->
-              <iframe allowfullscreen class="box" frameborder="0"
-                src="httpps://www.youtube.com/embed/sDkjt3UTukg" 
+              <!-- https://www.youtube-nocookie.com/embed/sDkjt3UTukg -->
+              <iframe id="yt1" allowfullscreen class="box" frameborder="0" 
+                src=""
                 title="Partenariat La Plateforme_ / Orange : Retours d'expériences de Mathilde & Luc" 
-                allow="accelerometer; autoplay; clipboard-write;
-                encrypted-media; gyroscope; picture-in-picture">
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
               </iframe>
               <!-- End of Box | YouTube -->
             </li>
@@ -402,12 +438,12 @@
 
             <!-- 2n Box-Wrapper -->
             <li class="box-wrapper">
-              <!-- Box - | YouTube -->
-              <iframe allowfullscreen class="box" frameborder="0"
-                src="httpps://www.youtube.com/embed/8U4CCAFLqEs" 
+              <!-- Box  | YouTube -->
+              <!-- "https://www.youtube-nocookie.com/embed/8U4CCAFLqEs" -->
+              <iframe id="yt2" allowfullscreen class="box" frameborder="0" 
+                src="" 
                 title="Cyril Zimmermann à La Plateforme" 
-                allow="accelerometer; autoplay; clipboard-write;
-                encrypted-media; gyroscope; picture-in-picture">
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
               </iframe>
               <!-- End of Box | YouTube -->
             </li>
