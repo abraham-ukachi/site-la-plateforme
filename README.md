@@ -29,13 +29,13 @@ These are a couple of the main requirements for this school project:
 > NOTE: In the spirit of "doing more", I added a couple of files (i.e. **manifest.json**, **laplateforme.js**) and a folder (i.e. **assets**).
 
 ## Jobs
-> MOTTO: I'll always do more 😜
+> MOTTO: I'll always do [**more**](#More) 😜
 
 The official deadline of the jobs below - according to [intra](https://intra.laplateforme.io) - was **10/28/2022 at 10:51 AM**.
 
 | No. | Job | Status |
 | --- | ---- | ------ |
-| 1 | [*`Jour 3 - HTML + CSS + Flex`*](#Jour-3---HTML-+-CSS-+-Flex) | *_Working_* |
+| 1 | [*`Jour 3 - HTML + CSS + Flex`*](#Jour-3---HTML-+-CSS-+-Flex) | [Done](#)\* |
 
 > NOTE: (\*) = still needs to be updated
 
@@ -46,13 +46,13 @@ Here is a list of all the names, `.html` and `.css` files to be submitted and th
 
 | No. | Name | File | Status |
 |:----|:-----|:-----|:-------|
-| 1 | *`Acceuil`* | **accueil.html** | _*In progress*_ | 
-| 2 | *`Qui sommes nous`* | **qui-sommes-nous.html** | Pending | 
-| 3 | *`AWS Restart`* | **aws-restart.html** | Pending | 
-| 4 | *`Contact`* | **contact.html** | Pending | 
-| 5 | *`News`* | **news.html** | Pending | 
-| 6 | *`Plateforme Start`* | **plateforme-start.html** | Pending | 
-| 8 | *`CSS - LaPlateforme_`* | **laplateforme.css** | Pending | 
+| 1 | *`Acceuil`* | **accueil.html** | [Done](./accueil.html)\* | 
+| 2 | *`Qui sommes nous`* | **qui-sommes-nous.html** | [Done](./qui-sommes-nous.html)\* | 
+| 3 | *`AWS Restart`* | **aws-restart.html** | [Done](./aws-restart.html)\* | 
+| 4 | *`Contact`* | **contact.html** | [Done](./contact.html)\* | 
+| 5 | *`News`* | **news.html** | [Done](./news.html)\* | 
+| 6 | *`Plateforme Start`* | **plateforme-start.html** | [Done](./plateforme-start.html)\* | 
+| 7 | *`CSS - LaPlateforme_`* | **laplateforme.css** | [Done](./laplateforme.html)\* | 
 
 > NOTE: (\*) = still needs to be updated
 
@@ -98,10 +98,56 @@ To open the **contact page**, enter the follwoing command in your terminal:
 open contact.html
 ```
 
-### TODOs
+#### via a local server
 
+Start a local server at port **7777** from `site-la-plateforme` directory:
+
+```sh
+python -m SimpleHTTPServer 7777
+```
+
+---
+
+## Testing
+
+| Browser | Version | Status | Date | Time
+|:--------|:--------|:-------|:-----|:-----
+| *`Brave`* | **1.44.112** | [Tested](http://localhost:7777/accueil.html) | 2022-11-01 | 10:17:47
+| *`Chrome`* | **-** | *Pending* | - | -
+| *`Firefox`* | **-** | *Pending* | - | -
+| *`Safari`* | **-** | *Pending* | - | -
+| *`Opera`* | **-** | *Pending* | - | -
+| *`Edge`* | **-** | *Pending* | - | -
+| *`IE`* | **-** | *Pending* | - | -
+
+> NOTE: *`IE`* = Internet Explorer = 👎🏽
+
+
+## More 
+
+These are some of the things I did in addition to this project's [job requirements](#Requirements):
+
+1. **<script>**: I embedded a "little" JS script into all `.html` files
+2. **laplateforme.js**: I created a JavaScript file named [laplateforme.js](./laplateforme.js) and inserted it to all `.html` files in the same directory.
+3. **favicon.ico**: I created an **white** `.ico` image as the site's default icon or *`favicon`*.
+4. **SplashScreen**: I made a splash screen which only gets displayed when the [accueil.html](./accueil.html) page loads.
+5. **Light & Dark mode**: I added a `light` and `dark` mode feature to the site.
+
+
+> NOTE: There are a few I must have forgotten, so I'll keep the above list updated obv. :)
+
+## TODOs
+
+- [ ] Add localization (at least: **english** & **french**)
+- [ ] Align *LaPlateforme* footer logo to **left**.
+- [ ] Create a *`#headerContent.container`* in **accueil.html**, to fix alignment or stretch issues.
 - [ ] Create a dialog layout
-- [ ] Add mobile compatibility to all pages.
-- [ ] Optimize [**accueil.html**](./accueil.html) file
+- [ ] Add mobile compatibility to all pages (i.e. make it responsive)
+- [ ] Optimize the [**accueil.html**](./accueil.html) file
+- [ ] Update the [**qui-sommes-nous.html**](./qui-sommes-nous.html) file
+- [ ] Update the [**aws-restart.html**](./aws-restart.html) file
+- [ ] Update the [**contact.html**](./contact.html) file
+- [ ] Update the [**news.html**](./news.html) file
+- [ ] Update the [**plateforme-start.html**](./plateforme-start.html) file
 - [ ] Remove unnecessary comments
 
