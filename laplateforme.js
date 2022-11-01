@@ -62,7 +62,7 @@ let _handleLightModeIconButtonClick = (event) => {
 let _handleSearchIconButtonClick = (event) => {
   // DEBUG [4dbsmaster]: tell me about it :)
   console.log(`[_handleSearchModeIconButtonClick]: event.target => `, event.target);
-};
+}
 
 
 
