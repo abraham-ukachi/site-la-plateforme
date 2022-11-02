@@ -136,7 +136,7 @@
               console.log(`[_progressHandler]: theme => ${theme}`);
              
               // if a theme was found in storage...
-              if (typeof(theme) !== 'undefined') {
+              if (typeof(theme) == 'string') {
                 // ...remove all the themes in body
                 document.body.classList.remove('light', 'dark');
                 // update the theme
